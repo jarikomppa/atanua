@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{a48f16e2-4d82-4df0-88f7-1e63e1b945b5}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6a0dbd26-4f00-477b-aeb3-d10b3b842f25}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{a9779901-8e4d-4547-999f-c6d5a3116d70}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Source Files\8051">
+      <UniqueIdentifier>{e85f7b21-9064-479f-9aad-4c5e6daaf3b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\basecode">
+      <UniqueIdentifier>{e653c41e-a6bf-4761-8099-a1e3e447d892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\chip">
+      <UniqueIdentifier>{b279e28c-dc76-4cba-afb8-69c1ede3eaa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{563191b0-ff49-4f8c-9582-00a4cdd6e9c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\basecode\stb">
+      <UniqueIdentifier>{c8324372-f477-4d24-a837-24a222d0ec15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\basecode\glee">
+      <UniqueIdentifier>{aeea36e8-27c9-4953-b4a8-9cc401550139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\tinyxml">
+      <UniqueIdentifier>{5d7f4664-dadd-49bb-935e-4bc84827ea3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\8051\core.c">
+      <Filter>Source Files\8051</Filter>
+    </ClCompile>
+    <ClCompile Include="src\8051\opcodes.c">
+      <Filter>Source Files\8051</Filter>
+    </ClCompile>
+    <ClCompile Include="src\basecode\angelcodefont.cpp">
+      <Filter>Source Files\basecode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\basecode\mersennetwister.cpp">
+      <Filter>Source Files\basecode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\basecode\toolkit.cpp">
+      <Filter>Source Files\basecode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\7segchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\16segchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\and3chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\and8chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\andchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\audiochip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\box.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\buttonchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip27xx.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip309.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip2051.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7400.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7402.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7404.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7408.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7410.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7420.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7432.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7447.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7473.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7474.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7485.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7486.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7489.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip7490.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74138.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74139.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74151.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74154.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74163.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74164.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74165.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74181.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74191.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74192.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74193.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74195.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74240.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74241.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74244.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74245.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74283.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\chip74574.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\clockchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\dchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\dflipflop.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\dxchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\extpin.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\extrapin.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\jkchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\jkflipflop.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\label.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\ledchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\ledgrid.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\logicprobe.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\muxchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\nand3chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\nand8chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\nandchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\nor3chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\nor8chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\norchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\notchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\or3chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\or8chip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\orchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\sedchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\serchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\srchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\srflipflop.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\srnegchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\staticlevelchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\stepper.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\switchchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\tchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\tflipflop.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chip\xorchip.cpp">
+      <Filter>Source Files\chip</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\AtanuaConfig.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\basechipfactory.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\BoxStitchingInformation.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\chip.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\fileio.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\fileutils.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\main.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\nativefunctions.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\net.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\pin.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\pluginchip.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\pluginchipfactory.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\simutils.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\slidingaverage.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\wire.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stb\stb_image.c">
+      <Filter>Source Files\basecode\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stb\stb_image_write.c">
+      <Filter>Source Files\basecode\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml_2_5_3\tinyxml\tinystr.cpp">
+      <Filter>Source Files\core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml_2_5_3\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml_2_5_3\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml_2_5_3\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glee\GLee.c">
+      <Filter>Source Files\basecode\glee</Filter>
+    </ClCompile>
+    <ClCompile Include="src\8051\disasm.c">
+      <Filter>Source Files\8051</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\include\7segchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\16segchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\and3chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\and8chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\andchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\angelcodefont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\atanua.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\atanua_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\audiochip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\basechipfactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\buttonchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip27xx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip309.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip2051.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7400.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7402.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7404.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7408.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7410.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7420.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7432.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7447.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7473.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7474.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7485.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7486.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7489.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip7490.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74138.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74139.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74151.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74154.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74163.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74164.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74165.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74181.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74191.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74192.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74193.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74195.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74240.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74241.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74244.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74245.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74283.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\chip74574.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\clockchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\dchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\dflipflop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\dxchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\extpin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\extrapin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\fileutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\jkchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\jkflipflop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\label.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\ledchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\ledgrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\logicprobe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\mersennetwister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\muxchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\nand3chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\nand8chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\nandchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\nor3chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\nor8chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\norchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\notchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\or3chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\or8chip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\orchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\pluginchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\pluginchipfactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\sedchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\serchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\slidingaverage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\srchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\srflipflop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\srnegchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\staticlevelchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\stepper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\switchchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\tchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\tflipflop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\toolkit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\xorchip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
