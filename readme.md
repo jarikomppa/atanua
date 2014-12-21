@@ -35,7 +35,7 @@ One of the base design principles with Atanua was that all of the chips must hav
 
 There's fairly few comments in there. Sorry about that.
 
-There's dependency to a couple of rather old third party code bases, namely tinyxml and GLee. At some point I considered replacing tinyxml with tinyxml2, but the APIs have changed so much that I didn't go through with it.
+There's dependency to a couple of rather old third party code bases, namely tinyxml 1, SDL 1.2 and GLee. At some point I considered replacing tinyxml with tinyxml2, but the APIs have changed so much that I didn't go through with it.
 
 Atanua has been known to crash, especially with very complex designs. There's an autosave system, but it's not in use by default. The crashes may have something to do with the undo/redo stack, not sure.
 
@@ -54,3 +54,23 @@ To make the desings really fly at pretty high frequencies it could be possible t
 I had looked at and considered adding support for other microcontrollers like AVR, but never got around to it.
 
 Several game designs were pondered on top of Atanua, but never built (as they probably would have required more work than has gone into Atanua as is).
+
+Several people have asked for possible export/import support with tools for further work, like Eagle, or even RTL.
+
+## Stuff That Could Be Done (More Realistically)
+
+Chips based on a scripting language, like Lua
+
+UI reform to fight the "chip explosion" - it's hard enough to find what you're looking for as is
+
+Schematic view generation of the 74xx chips
+
+Possibly switching between different views of the same chip (schematic / chip / different color leds / different key buttons)
+
+OpenGL optimization (currently doing tons of draw calls, could be batched, could be shader based..)
+
+Emscripten?
+
+Lots of refactoring
+
+Updated 3rd party libraries
