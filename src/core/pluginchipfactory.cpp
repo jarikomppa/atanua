@@ -23,8 +23,10 @@ distribution.
 #include "atanua.h"
 #include "atanua_internal.h"
 #include "pluginchipfactory.h"
-#include "tinyxml.h"
+#include "tinyxml2.h"
 #include "pluginchip.h"
+
+using namespace tinyxml2;
 
 PluginChipFactory::~PluginChipFactory()
 {
@@ -32,30 +34,30 @@ PluginChipFactory::~PluginChipFactory()
 
 PluginChipFactory::PluginChipFactory()
 {
-    TiXmlDocument doc;
+    XMLDocument doc;
     FILE * f = fopen("atanua.xml", "rb");
-    if (!doc.LoadFile(f))
+    if (doc.LoadFile(f))
     {
         fclose(f);
         return;
     }
     fclose(f);
     // Load config
-    TiXmlNode *root;
+    XMLNode *root;
     for (root = doc.FirstChild(); root != 0; root = root->NextSibling())
     {
-        if (root->Type() == TiXmlNode::ELEMENT)
+        if (root->ToElement())
         {
             if (stricmp(root->Value(), "AtanuaConfig")==0)
             {
-                TiXmlNode *part;
+                XMLNode *part;
                 for (part = root->FirstChild(); part != 0; part = part->NextSibling())
                 {
-                    if (part->Type() == TiXmlNode::ELEMENT)
+                    if (part->ToElement())
                     {
                         if (stricmp(part->Value(), "Plugin") == 0)
                         {
-                            const char *dll = ((TiXmlElement*)part)->Attribute("dll");
+                            const char *dll = ((XMLElement*)part)->Attribute("dll");
                             DLLHANDLETYPE h = opendll(dll);
                             if (h)
                             {
