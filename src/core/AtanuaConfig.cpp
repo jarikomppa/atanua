@@ -22,8 +22,10 @@ distribution.
 */
 #include "atanua.h"
 #include "atanua_internal.h"
-#include "tinyxml.h"
+#include "tinyxml2.h"
 #include <time.h>
+
+using namespace tinyxml2;
 
 AtanuaConfig::AtanuaConfig()
 {
@@ -61,163 +63,155 @@ AtanuaConfig::~AtanuaConfig()
 {
 }
 
-static int h2i(char d)
-{
-    if (d >= '0' && d <= '9')
-        return d - '0';
-    if (d >= 'A' && d <= 'F')
-        return d - 'A' + 10;
-    return -1;
-}
-
-
 void AtanuaConfig::load()
 {
-    TiXmlDocument doc;
-    FILE * f = fopen("atanua.xml", "rb");
+	XMLDocument doc;
+	XMLDeclaration *pDec;
+	XMLElement *pRoot;
+	XMLElement *pElement;
+    
+	FILE * f = fopen("atanua.xml", "rb");
 
     if (!f)
     {
-        // Save config
-        TiXmlDeclaration * decl = new TiXmlDeclaration("1.0","","");
-        TiXmlElement * topelement = new TiXmlElement("AtanuaConfig");
-        topelement->SetAttribute("GeneratedWith",TITLE);
-        doc.LinkEndChild(decl);
-        doc.LinkEndChild(topelement);
+		// Save config
+		pDec = doc.NewDeclaration();
+		doc.InsertEndChild(pDec);
 
-        TiXmlElement *element;
+		pRoot = doc.NewElement("AtanuaConfig");
+		pRoot->SetAttribute("GeneratedWith",TITLE);
+		doc.InsertEndChild(pRoot);
 
-        element = new TiXmlElement("PropagateInvalidState");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mPropagateInvalidState == PINSTATE_PROPAGATE_INVALID);
+		pElement = doc.NewElement("PropagateInvalidState");
+		pElement->SetAttribute("value", mPropagateInvalidState == PINSTATE_PROPAGATE_INVALID);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("CustomCursors");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mCustomCursors);
+		pElement = doc.NewElement("CustomCursors");
+		pElement->SetAttribute("value", mCustomCursors);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("PerformanceIndicators");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mPerformanceIndicators);
+		pElement = doc.NewElement("PerformanceIndicators");
+		pElement->SetAttribute("value", mPerformanceIndicators);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("SwapShiftAndCtrl");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mSwapShiftAndCtrl);
+		pElement = doc.NewElement("SwapShiftAndCtrl");
+		pElement->SetAttribute("value", mSwapShiftAndCtrl);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("WireFry");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mWireFry);
+		pElement = doc.NewElement("WireFry");
+		pElement->SetAttribute("value", mWireFry);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("AudioEnable");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mAudioEnable);
+		pElement = doc.NewElement("AudioEnable");
+		pElement->SetAttribute("value", mAudioEnable);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("ToolkitWidth");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mToolkitWidth);
+		pElement = doc.NewElement("ToolkitWidth");
+		pElement->SetAttribute("value", mToolkitWidth);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("MaxPhysicsMs");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mMaxPhysicsMs);
+		pElement = doc.NewElement("MaxPhysicsMs");
+		pElement->SetAttribute("value", mMaxPhysicsMs);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("InitialWindow");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("width", mWindowWidth);
-        element->SetAttribute("height", mWindowHeight);
+		pElement = doc.NewElement("InitialWindow");
+		pElement->SetAttribute("width", mWindowWidth);
+		pElement->SetAttribute("height", mWindowHeight);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("TooltipDelay");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("value", mTooltipDelay);
+		pElement = doc.NewElement("TooltipDelay");
+		pElement->SetAttribute("value", mTooltipDelay);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("LinePickTolerance");
-        topelement->LinkEndChild(element);
-        element->SetDoubleAttribute("value", mLinePickTolerance);
+		pElement = doc.NewElement("LinePickTolerance");
+		pElement->SetAttribute("value", mLinePickTolerance);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("LineEndTolerance");
-        topelement->LinkEndChild(element);
-        element->SetDoubleAttribute("value", mLineEndTolerance);
+		pElement = doc.NewElement("LineEndTolerance");
+		pElement->SetAttribute("value", mLineEndTolerance);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("LineSplitDragDistance");
-        topelement->LinkEndChild(element);
-        element->SetDoubleAttribute("value", mLineSplitDragDistance);
+		pElement = doc.NewElement("LineSplitDragDistance");
+		pElement->SetAttribute("value", mLineSplitDragDistance);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("ChipCloneDragDistance");
-        topelement->LinkEndChild(element);
-        element->SetDoubleAttribute("value", mChipCloneDragDistance);
+		pElement = doc.NewElement("ChipCloneDragDistance");
+		pElement->SetAttribute("value", mChipCloneDragDistance);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("User");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("name", "[No user name set]");
+		pElement = doc.NewElement("User");
+		pElement->SetAttribute("name", "[No user name set]");
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("FontSystem");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("CacheKeys", mFontCacheMax);
-        element->SetAttribute("VBO", mUseVBOs);
-        element->SetAttribute("SafeMode", mUseOldFontSystem);
+		pElement = doc.NewElement("FontSystem");
+		pElement->SetAttribute("CacheKeys", mFontCacheMax);
+		pElement->SetAttribute("VBO", mUseVBOs);
+		pElement->SetAttribute("SafeMode", mUseOldFontSystem);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("PerformanceOptions");
-        topelement->LinkEndChild(element);
-        element->SetAttribute("Blending", mUseBlending);
-        element->SetAttribute("AntialiasedLines", mAntialiasedLines);
+		pElement = doc.NewElement("PerformanceOptions");
+		pElement->SetAttribute("Blending", mUseBlending);
+		pElement->SetAttribute("AntialiasedLines", mAntialiasedLines);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("Limits");
-        topelement->LinkEndChild(element);
-		element->SetAttribute("MaxBoxes", mMaxActiveBoxes);
-		element->SetAttribute("PhysicsKHz", mPhysicsKHz);
+		pElement = doc.NewElement("Limits");
+		pElement->SetAttribute("MaxBoxes", mMaxActiveBoxes);
+		pElement->SetAttribute("PhysicsKHz", mPhysicsKHz);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("LED");
-        topelement->LinkEndChild(element);
-		element->SetAttribute("Samples", mLEDSamples);
+		pElement = doc.NewElement("LED");
+		pElement->SetAttribute("Samples", mLEDSamples);
+		pRoot->InsertEndChild(pElement);
 
-        element = new TiXmlElement("Autosave");
-        topelement->LinkEndChild(element);
-		element->SetAttribute("Directory", "");
-		element->SetAttribute("Enable", "0");
-		element->SetAttribute("SaveCount", "10");
-		element->SetAttribute("Interval", "1");
+		pElement = doc.NewElement("Autosave");
+		pElement->SetAttribute("Directory", "");
+		pElement->SetAttribute("Enable", "0");
+		pElement->SetAttribute("SaveCount", "10");
+		pElement->SetAttribute("Interval", "1");
+		pRoot->InsertEndChild(pElement);
 
-        f = fopen("atanua.xml", "wb");
-        doc.SaveFile(f);
-        fclose(f);
+		f = fopen("atanua.xml", "wb");
+		doc.SaveFile(f);
+		fclose(f);
     }
     else
     {
-        if (!doc.LoadFile(f))
+        if (doc.LoadFile(f))
         {
             fclose(f);
             return;
         }
         fclose(f);
         // Load config
-        TiXmlNode *root;
+        XMLNode *root;
         for (root = doc.FirstChild(); root != 0; root = root->NextSibling())
         {
-            if (root->Type() == TiXmlNode::ELEMENT)
+            if (root->ToElement())
             {
                 if (stricmp(root->Value(), "AtanuaConfig")==0)
                 {
-                    TiXmlNode *part;
+                    XMLNode *part;
                     for (part = root->FirstChild(); part != 0; part = part->NextSibling())
                     {
-                        if (part->Type() == TiXmlNode::ELEMENT)
+                        if (part->ToElement())
                         {
-
                             if (stricmp(part->Value(), "FontSystem") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("CacheKeys", &mFontCacheMax);
-                                ((TiXmlElement*)part)->QueryIntAttribute("VBO", &mUseVBOs);
-                                ((TiXmlElement*)part)->QueryIntAttribute("SafeMode", &mUseOldFontSystem);
+                                ((XMLElement*)part)->QueryIntAttribute("CacheKeys", &mFontCacheMax);
+                                ((XMLElement*)part)->QueryIntAttribute("VBO", &mUseVBOs);
+                                ((XMLElement*)part)->QueryIntAttribute("SafeMode", &mUseOldFontSystem);
                             }
                             else
                             if (stricmp(part->Value(), "PerformanceOptions") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("AntialiasedLines", &mAntialiasedLines);
-                                ((TiXmlElement*)part)->QueryIntAttribute("Blending", &mUseBlending);
+                                ((XMLElement*)part)->QueryIntAttribute("AntialiasedLines", &mAntialiasedLines);
+                                ((XMLElement*)part)->QueryIntAttribute("Blending", &mUseBlending);
                             }
                             else
                             if (stricmp(part->Value(), "PropagateInvalidState") == 0)
                             {
                                 int propagate;
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &propagate);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &propagate);
                                 if (propagate)
                                     mPropagateInvalidState = PINSTATE_PROPAGATE_INVALID;
                                 else
@@ -226,86 +220,86 @@ void AtanuaConfig::load()
                             else
                             if (stricmp(part->Value(), "CustomCursors") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mCustomCursors);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mCustomCursors);
                             }
                             else
                             if (stricmp(part->Value(), "PerformanceIndicators") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mPerformanceIndicators);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mPerformanceIndicators);
                             }
                             else
                             if (stricmp(part->Value(), "SwapShiftAndCtrl") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mSwapShiftAndCtrl);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mSwapShiftAndCtrl);
                             }
                             else
                             if (stricmp(part->Value(), "WireFry") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mWireFry);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mWireFry);
                             }
                             else
                             if (stricmp(part->Value(), "AudioEnable") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mAudioEnable);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mAudioEnable);
                             }
                             else
                             if (stricmp(part->Value(), "ToolkitWidth") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mToolkitWidth);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mToolkitWidth);
                             }
                             else
                             if (stricmp(part->Value(), "MaxPhysicsMs") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mMaxPhysicsMs);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mMaxPhysicsMs);
                             }
                             else
                             if (stricmp(part->Value(), "InitialWindow") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("width", &mWindowWidth);
-                                ((TiXmlElement*)part)->QueryIntAttribute("height", &mWindowHeight);
+                                ((XMLElement*)part)->QueryIntAttribute("width", &mWindowWidth);
+                                ((XMLElement*)part)->QueryIntAttribute("height", &mWindowHeight);
                             }
                             else
                             if (stricmp(part->Value(), "TooltipDelay") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryIntAttribute("value", &mTooltipDelay);
+                                ((XMLElement*)part)->QueryIntAttribute("value", &mTooltipDelay);
                             }
                             else
                             if (stricmp(part->Value(), "LinePickTolerance") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryFloatAttribute("value", &mLinePickTolerance);
+                                ((XMLElement*)part)->QueryFloatAttribute("value", &mLinePickTolerance);
                             }
                             else
                             if (stricmp(part->Value(), "LineEndTolerance") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryFloatAttribute("value", &mLineEndTolerance);
+                                ((XMLElement*)part)->QueryFloatAttribute("value", &mLineEndTolerance);
                             }
                             else
                             if (stricmp(part->Value(), "LineSplitDragDistance") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryFloatAttribute("value", &mLineSplitDragDistance);
+                                ((XMLElement*)part)->QueryFloatAttribute("value", &mLineSplitDragDistance);
                             }
                             else
                             if (stricmp(part->Value(), "ChipCloneDragDistance") == 0)
                             {
-                                ((TiXmlElement*)part)->QueryFloatAttribute("value", &mChipCloneDragDistance);
+                                ((XMLElement*)part)->QueryFloatAttribute("value", &mChipCloneDragDistance);
                             }
                             else
 							if (stricmp(part->Value(), "Limits") == 0)
 							{
-								((TiXmlElement*)part)->QueryIntAttribute("MaxBoxes", &mMaxActiveBoxes);
-								((TiXmlElement*)part)->QueryIntAttribute("PhysicsKHz", &mPhysicsKHz);
+								((XMLElement*)part)->QueryIntAttribute("MaxBoxes", &mMaxActiveBoxes);
+								((XMLElement*)part)->QueryIntAttribute("PhysicsKHz", &mPhysicsKHz);
 							}
 							else
 							if (stricmp(part->Value(), "LED") == 0)
 							{
-								((TiXmlElement*)part)->QueryIntAttribute("Samples", &mLEDSamples);
+								((XMLElement*)part)->QueryIntAttribute("Samples", &mLEDSamples);
 								if (mLEDSamples <= 0) mLEDSamples = 1;
 								if (mLEDSamples > 10000) mLEDSamples = 10000;
 							}
 							else
 							if (stricmp(part->Value(), "User") == 0)
 							{
-								const char *t = ((TiXmlElement*)part)->Attribute("name");
+								const char *t = ((XMLElement*)part)->Attribute("name");
 								if (t && strlen(t) > 0)
 								{
 									delete[] mUserInfo;
@@ -314,10 +308,10 @@ void AtanuaConfig::load()
 							}
 							if (stricmp(part->Value(), "Autosave") == 0)
 							{
-								((TiXmlElement*)part)->QueryIntAttribute("Enable", &mAutosaveEnable);
-								((TiXmlElement*)part)->QueryIntAttribute("SaveCount", &mAutosaveCount);
-								((TiXmlElement*)part)->QueryIntAttribute("Interval", &mAutosaveInterval);
-								const char * dir = ((TiXmlElement*)part)->Attribute("Directory");
+								((XMLElement*)part)->QueryIntAttribute("Enable", &mAutosaveEnable);
+								((XMLElement*)part)->QueryIntAttribute("SaveCount", &mAutosaveCount);
+								((XMLElement*)part)->QueryIntAttribute("Interval", &mAutosaveInterval);
+								const char * dir = ((XMLElement*)part)->Attribute("Directory");
 								if (dir)
 								{
 									int len = strlen(dir);

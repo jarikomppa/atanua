@@ -23,10 +23,12 @@ distribution.
 #include "atanua.h"
 #include "atanua_internal.h"
 #include "fileutils.h"
-#include "tinyxml.h"
+#include "tinyxml2.h"
 #include "extpin.h"
 #include "box.h"
 #include <string>
+
+using namespace tinyxml2;
 
 // For wire frying:
 static vector<Chip *> gFryList;

@@ -23,10 +23,12 @@ distribution.
 #include "atanua.h"
 #include "atanua_internal.h"
 #include "fileutils.h"
-#include "tinyxml.h"
+#include "tinyxml2.h"
 #include "extpin.h"
 #include "box.h"
 #include <string>
+
+using namespace tinyxml2;
 
 FILE * openfileinsamedir(const char * aFile);
 void do_flush_boxloadqueue();
@@ -145,9 +147,9 @@ void do_savexml(FILE * filehandle)
     for (i = 0; i < (signed)gWire.size(); i++)
         masterkey ^= gWire[i]->mKey;
 
-    TiXmlDocument doc;
-    TiXmlDeclaration * decl = new TiXmlDeclaration("1.0","","");
-    TiXmlElement * topelement = new TiXmlElement("Atanua");
+    XMLDocument doc;
+    XMLDeclaration * decl = doc.NewDeclaration();;
+    XMLElement * topelement = doc.NewElement("Atanua");
     {
         char temp[512];
         sprintf(temp, "%s - %s", TITLE, gConfig.mUserInfo);
@@ -175,7 +177,7 @@ void do_savexml(FILE * filehandle)
     {
 		if (gChip[i]->mBox != 0)
 			continue;        
-		TiXmlElement *element = new TiXmlElement("Chip");
+		XMLElement *element = doc.NewElement("Chip");
         topelement->LinkEndChild(element);
         element->SetAttribute("Name", gChipName[i]);
         element->SetAttribute("xpos", (int)floor((1 << 16) * gChip[i]->mX));
@@ -196,7 +198,7 @@ void do_savexml(FILE * filehandle)
                 s.push_back(temp[0]);
                 s.push_back(temp[1]);
             }
-            TiXmlText *text = new TiXmlText(s.c_str());
+            XMLText *text = doc.NewText(s.c_str());
             element->LinkEndChild(text);
         }
 
@@ -205,7 +207,7 @@ void do_savexml(FILE * filehandle)
     {
 		if (gWire[i]->mBox != 0)
 			continue;
-        TiXmlElement *element = new TiXmlElement("Wire");
+        XMLElement *element = doc.NewElement("Wire");
         topelement->LinkEndChild(element);
         Pin *pn[2];
         pn[0] = gWire[i]->mFirst;
@@ -314,31 +316,31 @@ BoxStitchingInformation * do_preparse_box(const char *aFname)
 
 void do_loadxml(FILE * f, int box)
 {
-    TiXmlDocument doc;
-    TiXmlNode *pChild;
+    XMLDocument doc;
+    XMLNode *pChild;
 
 	// Need to know the existing chip count in case we're merging
 	int old_chips = gChip.size();
 
-    if (!doc.LoadFile(f))
+    if (doc.LoadFile(f))
 	{
         return;
 	}
 
     for (pChild = doc.FirstChild(); pChild != 0; pChild = pChild->NextSibling())
     {
-        if (pChild->Type() == TiXmlNode::ELEMENT)
+        if (pChild->ToElement())
         {
             if (stricmp(pChild->Value(), "Atanua") == 0)
             {
                 int masterkey = 0;
                 int scale = 24;
-                ((TiXmlElement*)pChild)->QueryIntAttribute("key", &masterkey);
-                ((TiXmlElement*)pChild)->QueryIntAttribute("scale", &scale);
-                TiXmlNode *part;
+                ((XMLElement*)pChild)->QueryIntAttribute("key", &masterkey);
+                ((XMLElement*)pChild)->QueryIntAttribute("scale", &scale);
+                XMLNode *part;
                 for (part = pChild->FirstChild(); part != 0; part = part->NextSibling())
                 {
-                    if (part->Type() == TiXmlNode::ELEMENT)
+                    if (part->ToElement())
                     {
                         if (stricmp(part->Value(), "Chip")==0)
                         {
@@ -346,7 +348,7 @@ void do_loadxml(FILE * f, int box)
                             // the copy which is always in memory so that we get a
                             // sane pointer to it for gChipName.
                             const char *chipname = NULL;
-                            const char *temp = ((TiXmlElement*)part)->Attribute("Name");
+                            const char *temp = ((XMLElement*)part)->Attribute("Name");
                             if (temp)
                             {
 								// boxes are... special.
@@ -409,19 +411,19 @@ void do_loadxml(FILE * f, int box)
                                     }
                                     int x, y, key, angle;
                                     x = y = key = angle = 0;                                    
-                                    ((TiXmlElement*)part)->QueryIntAttribute("xpos", &x);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("ypos", &y);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("key", &key);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("rot", &angle);
+                                    ((XMLElement*)part)->QueryIntAttribute("xpos", &x);
+                                    ((XMLElement*)part)->QueryIntAttribute("ypos", &y);
+                                    ((XMLElement*)part)->QueryIntAttribute("key", &key);
+                                    ((XMLElement*)part)->QueryIntAttribute("rot", &angle);
                                     chip->mAngleIn90DegreeSteps = angle;
                                     chip->mX = (float)x / (1 << scale);
                                     chip->mY = (float)y / (1 << scale);
                                     chip->mKey = key ^ masterkey;
 
-                                    TiXmlNode *text;
+                                    XMLNode *text;
                                     for (text = part->FirstChild(); text != 0; text = text->NextSibling())
                                     {
-                                        if (text->Type() == TiXmlNode::TEXT)
+                                        if (text->ToText())
                                         {
 
                                             MemoryFile f;
@@ -495,11 +497,11 @@ void do_loadxml(FILE * f, int box)
                         if (stricmp(part->Value(), "Wire")==0)
                         {
                             int chip1, pin1, chip2, pin2, key;
-                            ((TiXmlElement*)part)->QueryIntAttribute("chip1", &chip1);
-                            ((TiXmlElement*)part)->QueryIntAttribute("chip2", &chip2);
-                            ((TiXmlElement*)part)->QueryIntAttribute("pad1", &pin1);
-                            ((TiXmlElement*)part)->QueryIntAttribute("pad2", &pin2);
-                            ((TiXmlElement*)part)->QueryIntAttribute("key", &key);
+                            ((XMLElement*)part)->QueryIntAttribute("chip1", &chip1);
+                            ((XMLElement*)part)->QueryIntAttribute("chip2", &chip2);
+                            ((XMLElement*)part)->QueryIntAttribute("pad1", &pin1);
+                            ((XMLElement*)part)->QueryIntAttribute("pad2", &pin2);
+                            ((XMLElement*)part)->QueryIntAttribute("key", &key);
                             if (chip1 < 0 || chip2 < 0 || pin1 < 0 || pin2 < 0 ||
                                 chip1+old_chips >= (signed)gChip.size() ||
                                 chip2+old_chips >= (signed)gChip.size() ||
@@ -721,8 +723,8 @@ void do_savebinary(File * f)
 
 void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
 {
-    TiXmlDocument doc;
-    TiXmlNode *pChild;
+    XMLDocument doc;
+    XMLNode *pChild;
 
     if (!doc.LoadFile(f))
 	{
@@ -731,27 +733,27 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
 
     for (pChild = doc.FirstChild(); pChild != 0; pChild = pChild->NextSibling())
     {
-        if (pChild->Type() == TiXmlNode::ELEMENT)
+        if (pChild->ToElement())
         {
             if (stricmp(pChild->Value(), "Atanua") == 0)
             {
 				outf->writeint(0x02617441); // 'Ata' + 2
 	
 				int chipcount = 0;
-                ((TiXmlElement*)pChild)->QueryIntAttribute("ChipCount", &chipcount);
+                ((XMLElement*)pChild)->QueryIntAttribute("ChipCount", &chipcount);
 				outf->writeint(chipcount);
 	
 				int wirecount = 0;   
-                ((TiXmlElement*)pChild)->QueryIntAttribute("WireCount", &wirecount);
+                ((XMLElement*)pChild)->QueryIntAttribute("WireCount", &wirecount);
 				outf->writeint(wirecount);
 
 				int scale = 24;
-                ((TiXmlElement*)pChild)->QueryIntAttribute("scale", &scale);
+                ((XMLElement*)pChild)->QueryIntAttribute("scale", &scale);
 
-                TiXmlNode *part;
+                XMLNode *part;
                 for (part = pChild->FirstChild(); part != 0; part = part->NextSibling())
                 {
-                    if (part->Type() == TiXmlNode::ELEMENT)
+                    if (part->ToElement())
                     {
                         if (stricmp(part->Value(), "Chip")==0)
                         {
@@ -759,7 +761,7 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
                             // the copy which is always in memory so that we get a
                             // sane pointer to it for gChipName.
                             const char *chipname = NULL;
-                            const char *temp = ((TiXmlElement*)part)->Attribute("Name");
+                            const char *temp = ((XMLElement*)part)->Attribute("Name");
                             if (temp)
                             {
 								// boxes are... special.
@@ -813,10 +815,10 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
                                 {
                                     int x, y, key, angle;
                                     x = y = key = angle = 0;                                    
-                                    ((TiXmlElement*)part)->QueryIntAttribute("xpos", &x);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("ypos", &y);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("key", &key);
-                                    ((TiXmlElement*)part)->QueryIntAttribute("rot", &angle);
+                                    ((XMLElement*)part)->QueryIntAttribute("xpos", &x);
+                                    ((XMLElement*)part)->QueryIntAttribute("ypos", &y);
+                                    ((XMLElement*)part)->QueryIntAttribute("key", &key);
+                                    ((XMLElement*)part)->QueryIntAttribute("rot", &angle);
                                     int AngleIn90DegreeSteps = angle;
                                     float X = (float)x / (1 << scale);
                                     float Y = (float)y / (1 << scale);
@@ -829,10 +831,10 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
 									outf->writeint(AngleIn90DegreeSteps);
 									outf->writeint(0);
 
-                                    TiXmlNode *text;
+                                    XMLNode *text;
                                     for (text = part->FirstChild(); text != 0; text = text->NextSibling())
                                     {
-                                        if (text->Type() == TiXmlNode::TEXT)
+                                        if (text->ToText())
                                         {
                                             const char *v = text->Value();
                                             int wholebyte = 0;
@@ -918,10 +920,10 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
                         if (stricmp(part->Value(), "Wire")==0)
                         {
                             int chip1, pin1, chip2, pin2;
-                            ((TiXmlElement*)part)->QueryIntAttribute("chip1", &chip1);
-                            ((TiXmlElement*)part)->QueryIntAttribute("chip2", &chip2);
-                            ((TiXmlElement*)part)->QueryIntAttribute("pad1", &pin1);
-                            ((TiXmlElement*)part)->QueryIntAttribute("pad2", &pin2);
+                            ((XMLElement*)part)->QueryIntAttribute("chip1", &chip1);
+                            ((XMLElement*)part)->QueryIntAttribute("chip2", &chip2);
+                            ((XMLElement*)part)->QueryIntAttribute("pad1", &pin1);
+                            ((XMLElement*)part)->QueryIntAttribute("pad2", &pin2);
 							
 							outf->writeint((chip1<<16) | pin1);
 							outf->writeint((chip2<<16) | pin2);
