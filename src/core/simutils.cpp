@@ -461,7 +461,7 @@ void do_flush_boxloadqueue()
 		gBoxLoadQueue.pop_back();
 		gBoxBeingLoaded = item->mBox;
 		File *bf = do_preload_box(item->mFilename);
-		if (bf == NULL)
+		if (bf->f == NULL)
 		{
 			// pretty catastrophic, but we'll do what we can..
 			gBoxBeingLoaded = NULL;

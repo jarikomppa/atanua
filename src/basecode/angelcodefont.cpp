@@ -209,7 +209,7 @@ void ACFont::load(const char *filename)
 
 void ACFont::load(File * f)
 {
-    if (f == NULL) return;
+    if (f->f == NULL) return;
     if (f->readbyte() != 0x42) return; // B
     if (f->readbyte() != 0x4d) return; // M
     if (f->readbyte() != 0x46) return; // F
