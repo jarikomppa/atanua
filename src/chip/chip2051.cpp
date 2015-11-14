@@ -124,7 +124,7 @@ Chip2051::Chip2051()
     mClock = 0;
     mResetCounter = 0;
 
-    mTexture = load_texture("data/chip_20pin.png");    
+    mTexture = load_texture(DATADIR "/chip_20pin.png");    
 }
 
 void Chip2051::render(int aChipId)

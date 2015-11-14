@@ -46,7 +46,7 @@ Chip74163::Chip74163()
     DEF_PIN(mInputPin[3], 1.75, "Pin 6:DATA INPUT D");
     DEF_PIN(mEnablePPin, 1.75, "Pin 7:ENABLE P");
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 
     mOldClock = 0;
     mValue = 0;

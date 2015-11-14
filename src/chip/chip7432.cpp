@@ -56,7 +56,7 @@ Chip7432::Chip7432()
     mPin.push_back(&mOutputPin[3]);
     mOutputPin[3].set(xpos, 1.5, this, "Pin 6:Y2"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 }
 
 void Chip7432::render(int aChipId)

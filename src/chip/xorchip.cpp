@@ -33,9 +33,9 @@ XORChip::XORChip(int aUS)
     mPin.push_back(&mOutputPin);
     mOutputPin.set(3.5, 0.75, this, "Output");
     if (aUS)
-        mTexture = load_texture("data/xor_us.png");
+        mTexture = load_texture(DATADIR "/xor_us.png");
     else
-        mTexture = load_texture("data/xor_fi.png");
+        mTexture = load_texture(DATADIR "/xor_fi.png");
 
 	mInputPinA.mReadOnly = 1;
 	mInputPinB.mReadOnly = 1;

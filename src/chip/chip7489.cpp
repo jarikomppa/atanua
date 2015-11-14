@@ -59,7 +59,7 @@ Chip7489::Chip7489()
     mPin.push_back(&mSensePin[1]);
     mSensePin[1].set(xpos , 1.75, this, "S2"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
     
     int i;
     for (i = 0; i < 16; i++)

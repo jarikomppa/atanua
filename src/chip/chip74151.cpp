@@ -61,7 +61,7 @@ Chip74151::Chip74151()
     mPin.push_back(&mStrobePin);
     mStrobePin.set(xpos, 1.75, this, "Pin 7:STROBE"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip74151::render(int aChipId)

@@ -29,7 +29,7 @@ ButtonChip::ButtonChip(int aCharacter)
     set(0,0,2,2,NULL);
     mPin.push_back(&mOutputPin);
     mOutputPin.set(0.75, 1.5, this, "Output");
-    mTexture = load_texture("data/button.png");
+    mTexture = load_texture(DATADIR "/button.png");
     mPressed = 0;
 }
 

@@ -34,7 +34,7 @@ SRNegChip::SRNegChip()
     mOutputPinA.set(3.5, 0.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(3.5, 1.25, this, "Inverted output");
-    mTexture = load_texture("data/sr_neg.png");
+    mTexture = load_texture(DATADIR "/sr_neg.png");
     mOldState = 0;
 
 	mInputPinA.mReadOnly = 1;

@@ -52,7 +52,7 @@ AudioChip::AudioChip()
     mPin.push_back(&mPinA[0]);
     mPinA[0].set(0, ypos, this, "A0"); ypos += 0.5;    
 
-    mTexture = load_texture("data/audio.png");    
+    mTexture = load_texture(DATADIR "/audio.png");    
 
 	int i;
 	for (i = 0; i < 8; i++)

@@ -36,7 +36,7 @@ SERChip::SERChip()
     mOutputPinA.set(3.5, 0.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(3.5, 1.25, this, "Inverted output");
-    mTexture = load_texture("data/ser.png");
+    mTexture = load_texture(DATADIR "/ser.png");
 
 	mInputPinA.mReadOnly = 1;
 	mInputPinB.mReadOnly = 1;

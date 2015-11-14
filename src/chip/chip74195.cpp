@@ -61,7 +61,7 @@ Chip74195::Chip74195()
     mPin.push_back(&mInputPin[3]);
     mInputPin[3].set(xpos, 1.75, this, "Pin 7:P3"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
     
     mClock = 0;
 }

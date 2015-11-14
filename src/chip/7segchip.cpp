@@ -62,15 +62,15 @@ SevenSegChip::SevenSegChip(int aColor, int aInverse)
     mPin.push_back(&mInputPin[7]);
     mInputPin[7].set(2.0, 4.5, this,mInverse?"Pin 5:D.P#":"Pin 5:D.P");
 
-    mTexture[0] = load_texture("data/7seg_base.png");
-    mTexture[1] = load_texture("data/7seg_a.png");
-    mTexture[2] = load_texture("data/7seg_b.png");
-    mTexture[3] = load_texture("data/7seg_c.png");
-    mTexture[4] = load_texture("data/7seg_d.png");
-    mTexture[5] = load_texture("data/7seg_e.png");
-    mTexture[6] = load_texture("data/7seg_f.png");
-    mTexture[7] = load_texture("data/7seg_g.png");
-    mTexture[8] = load_texture("data/7seg_h.png");
+    mTexture[0] = load_texture(DATADIR "/7seg_base.png");
+    mTexture[1] = load_texture(DATADIR "/7seg_a.png");
+    mTexture[2] = load_texture(DATADIR "/7seg_b.png");
+    mTexture[3] = load_texture(DATADIR "/7seg_c.png");
+    mTexture[4] = load_texture(DATADIR "/7seg_d.png");
+    mTexture[5] = load_texture(DATADIR "/7seg_e.png");
+    mTexture[6] = load_texture(DATADIR "/7seg_f.png");
+    mTexture[7] = load_texture(DATADIR "/7seg_g.png");
+    mTexture[8] = load_texture(DATADIR "/7seg_h.png");
 
 	int i;
 	for (i = 0; i < 8; i++)

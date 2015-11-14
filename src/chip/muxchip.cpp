@@ -45,7 +45,7 @@ MuxChip::MuxChip()
     mOutputPinA.set(4.5, 1.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(4.5, 3.25, this, "Inverted output");
-    mTexture = load_texture("data/mux.png");
+    mTexture = load_texture(DATADIR "/mux.png");
 
 	mInputPin[0].mReadOnly = 1;
 	mInputPin[1].mReadOnly = 1;

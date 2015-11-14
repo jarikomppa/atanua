@@ -58,7 +58,7 @@ Chip74283::Chip74283()
     mPin.push_back(&mInputPinC);
     mInputPinC.set(xpos, 1.75, this, "Pin 7:C0"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip74283::render(int aChipId)

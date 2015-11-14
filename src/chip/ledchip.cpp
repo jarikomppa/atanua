@@ -31,8 +31,8 @@ LEDChip::LEDChip(int aColor, int aInverse)
 	set(0, 0, 1, 2.5, NULL);
 	mPin.push_back(&mInputPin);
 	mInputPin.set((mW-0.5)/2, mH-0.5, this, mInverse?"Input#":"Input");
-	mBaseTexture = load_texture("data/led.png");
-	mFlareTexture = load_texture("data/flare.png");
+	mBaseTexture = load_texture(DATADIR "/led.png");
+	mFlareTexture = load_texture(DATADIR "/flare.png");
 	mInverse = aInverse;
 
 	mInputPin.mReadOnly = 1;

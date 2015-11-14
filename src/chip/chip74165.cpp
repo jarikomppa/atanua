@@ -58,7 +58,7 @@ Chip74165::Chip74165()
     mPin.push_back(&mNegOutput);
     mNegOutput.set(xpos, 1.75, this, "Pin 7:OUTPUT (Q7)#"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
     mLastClock = 0;
     mValue = 0;
 }

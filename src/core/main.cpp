@@ -1760,12 +1760,12 @@ int main(int argc, char** args)
     // For imgui - Enable keyboard UNICODE processing for the text field.
     SDL_EnableUNICODE(1);
 
-    fn.load("data/vera31.fnt");
-    fn14.load("data/vera14.fnt");
+    fn.load(DATADIR "/vera31.fnt");
+    fn14.load(DATADIR "/vera14.fnt");
 
 #ifndef __APPLE__ // Use the higher-resolution OSX icon instead
 	int x, y, n;
-	unsigned char *data = stbi_load("data/icon.png", &x, &y, &n, 4);
+	unsigned char *data = stbi_load(DATADIR "/icon.png", &x, &y, &n, 4);
     if (data)
 	{	
 		SDL_Surface *icon = SDL_CreateRGBSurfaceFrom(data,x,y,32,x*4,0x000000ff,0x0000ff00, 0x00ff0000, 0xff000000);
@@ -1779,9 +1779,9 @@ int main(int argc, char** args)
 
     if (gConfig.mCustomCursors)
     {
-        cursor_drag = load_cursor("data/cursor_drag.png", 10, 0);
-        cursor_scissors = load_cursor("data/cursor_scissors.png", 6, 6);
-        cursor_normal = load_cursor("data/cursor_ptr.png", 0, 0);
+        cursor_drag = load_cursor(DATADIR "/cursor_drag.png", 10, 0);
+        cursor_scissors = load_cursor(DATADIR "/cursor_scissors.png", 6, 6);
+        cursor_normal = load_cursor(DATADIR "/cursor_ptr.png", 0, 0);
         SDL_SetCursor(cursor_normal);
     }
 

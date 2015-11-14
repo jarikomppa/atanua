@@ -53,7 +53,7 @@ LogicProbe::LogicProbe()
     mPin.push_back(&mInputPin[0]);
     mInputPin[0].set(0, ypos, this, "Bit 0"); ypos += 0.56;
 
-    mTexture = load_texture("data/lcd.png");
+    mTexture = load_texture(DATADIR "/lcd.png");
     mPlayhead = 0;
     mState = 1;
 	mLastTick = 0;

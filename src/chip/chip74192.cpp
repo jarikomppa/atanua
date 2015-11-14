@@ -58,7 +58,7 @@ Chip74192::Chip74192()
     mPin.push_back(&mOutputPin[3]);
     mOutputPin[3].set(xpos, 1.75, this, "Pin 7:QD"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 
     mValue = 0;
     mCountDownLastState = 0;

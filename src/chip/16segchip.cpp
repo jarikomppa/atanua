@@ -75,24 +75,24 @@ SixteenSegChip::SixteenSegChip(int aColor, int aInverse)
 	mInputPin[15].set(2.95,ypos,this,"Pin 17: M"); ypos -= step;
 	mInputPin[16].set(2.95,ypos,this,"Pin 18: DP"); ypos -= step;
 
-    mTexture[0] = load_texture("data/16seg_base.png");
-    mTexture[1] = load_texture("data/16seg_a1.png");
-    mTexture[2] = load_texture("data/16seg_a2.png");
-    mTexture[3] = load_texture("data/16seg_j.png");
-    mTexture[4] = load_texture("data/16seg_h.png");
-    mTexture[5] = load_texture("data/16seg_f.png");
-    mTexture[6] = load_texture("data/16seg_e.png");
-    mTexture[7] = load_texture("data/16seg_n.png");
-    mTexture[8] = load_texture("data/16seg_d1.png");
-    mTexture[9] = load_texture("data/16seg_d2.png");
-    mTexture[10] = load_texture("data/16seg_k.png");
-    mTexture[11] = load_texture("data/16seg_b.png");
-    mTexture[12] = load_texture("data/16seg_g1.png");
-    mTexture[13] = load_texture("data/16seg_g2.png");
-    mTexture[14] = load_texture("data/16seg_c.png");
-    mTexture[15] = load_texture("data/16seg_l.png");
-    mTexture[16] = load_texture("data/16seg_m.png");
-    mTexture[17] = load_texture("data/16seg_dp.png");
+    mTexture[0] = load_texture(DATADIR "/16seg_base.png");
+    mTexture[1] = load_texture(DATADIR "/16seg_a1.png");
+    mTexture[2] = load_texture(DATADIR "/16seg_a2.png");
+    mTexture[3] = load_texture(DATADIR "/16seg_j.png");
+    mTexture[4] = load_texture(DATADIR "/16seg_h.png");
+    mTexture[5] = load_texture(DATADIR "/16seg_f.png");
+    mTexture[6] = load_texture(DATADIR "/16seg_e.png");
+    mTexture[7] = load_texture(DATADIR "/16seg_n.png");
+    mTexture[8] = load_texture(DATADIR "/16seg_d1.png");
+    mTexture[9] = load_texture(DATADIR "/16seg_d2.png");
+    mTexture[10] = load_texture(DATADIR "/16seg_k.png");
+    mTexture[11] = load_texture(DATADIR "/16seg_b.png");
+    mTexture[12] = load_texture(DATADIR "/16seg_g1.png");
+    mTexture[13] = load_texture(DATADIR "/16seg_g2.png");
+    mTexture[14] = load_texture(DATADIR "/16seg_c.png");
+    mTexture[15] = load_texture(DATADIR "/16seg_l.png");
+    mTexture[16] = load_texture(DATADIR "/16seg_m.png");
+    mTexture[17] = load_texture(DATADIR "/16seg_dp.png");
 }
 
 SixteenSegChip::~SixteenSegChip()

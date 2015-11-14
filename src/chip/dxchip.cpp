@@ -57,7 +57,7 @@ DxChip::DxChip()
     mPin.push_back(&mOutputPin[7]);
     mOutputPin[7].set(4.5, 7.25, this, "Output 7");
 
-    mTexture = load_texture("data/dx.png");
+    mTexture = load_texture(DATADIR "/dx.png");
 
 	mInputPin[0].mReadOnly = 1;
 	mInputPin[1].mReadOnly = 1;

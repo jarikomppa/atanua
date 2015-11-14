@@ -42,7 +42,7 @@ JKFlipFlop::JKFlipFlop()
     mOutputPinA.set(4.5, 1.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(4.5, 3.25, this, "Inverted output");
-    mTexture = load_texture("data/jk_flipflop.png");
+    mTexture = load_texture(DATADIR "/jk_flipflop.png");
     mState = 0;
     mClock = 0;
 

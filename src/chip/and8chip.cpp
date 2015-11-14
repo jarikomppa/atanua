@@ -49,9 +49,9 @@ AND8Chip::AND8Chip(int aUS)
     mInputPin[7].set(0, ypos, this, "Input H");
     mOutputPin.set(3.5, 1.75, this, "Output");
     if (aUS)
-        mTexture = load_texture("data/and8_us.png");
+        mTexture = load_texture(DATADIR "/and8_us.png");
     else
-        mTexture = load_texture("data/and8_fi.png");
+        mTexture = load_texture(DATADIR "/and8_fi.png");
 
 	int i;
 	for (i = 0; i < 8; i++)

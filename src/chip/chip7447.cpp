@@ -58,7 +58,7 @@ Chip7447::Chip7447()
     mPin.push_back(&mInputPin[0]);
     mInputPin[0].set(xpos, 1.75, this, "Pin 7:A0"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip7447::render(int aChipId)

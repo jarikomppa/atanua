@@ -23,6 +23,10 @@ distribution.
 #include <vector>
 #include "toolkit.h"
 
+#ifndef DATADIR
+#define DATADIR "data"
+#endif
+
 using namespace std;
 
 

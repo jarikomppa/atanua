@@ -34,7 +34,7 @@ JKChip::JKChip()
     mOutputPinA.set(3.5, 0.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(3.5, 1.25, this, "Inverted output");
-    mTexture = load_texture("data/jk.png");
+    mTexture = load_texture(DATADIR "/jk.png");
     mOldState = 0;
 
 	mInputPinA.mReadOnly = 1;

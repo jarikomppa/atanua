@@ -57,7 +57,7 @@ Chip74164::Chip74164()
     mPin.push_back(&mOutputPin[3]);                  
     mOutputPin[3].set(xpos , 1.5, this, "Pin 6:OUTPUT QD"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 
     mOldClock = 0;
 }

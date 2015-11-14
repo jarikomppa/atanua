@@ -60,7 +60,7 @@ Chip74138::Chip74138()
     mPin.push_back(&mOutputPin[7]);
     mOutputPin[7].set(xpos , 1.75, this, "Pin 7:DATA OUTPUT Y7"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip74138::render(int aChipId)

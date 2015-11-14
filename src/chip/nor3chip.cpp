@@ -35,9 +35,9 @@ NOR3Chip::NOR3Chip(int aUS)
     mPin.push_back(&mOutputPin);
     mOutputPin.set(3.5, 0.75, this, "Output");
     if (aUS)
-        mTexture = load_texture("data/nor3_us.png");
+        mTexture = load_texture(DATADIR "/nor3_us.png");
     else
-        mTexture = load_texture("data/nor3_fi.png");
+        mTexture = load_texture(DATADIR "/nor3_fi.png");
 
 	mInputPinA.mReadOnly = 1;
 	mInputPinB.mReadOnly = 1;
