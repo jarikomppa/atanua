@@ -327,7 +327,7 @@ void do_loadxml(FILE * f, int box)
 
     for (pChild = doc.FirstChild(); pChild != 0; pChild = pChild->NextSibling())
     {
-        if (pChild->Type() == TiXmlNode::ELEMENT)
+        if (pChild->Type() == TiXmlNode::TINYXML_ELEMENT)
         {
             if (stricmp(pChild->Value(), "Atanua") == 0)
             {
@@ -338,7 +338,7 @@ void do_loadxml(FILE * f, int box)
                 TiXmlNode *part;
                 for (part = pChild->FirstChild(); part != 0; part = part->NextSibling())
                 {
-                    if (part->Type() == TiXmlNode::ELEMENT)
+                    if (part->Type() == TiXmlNode::TINYXML_ELEMENT)
                     {
                         if (stricmp(part->Value(), "Chip")==0)
                         {
@@ -421,7 +421,7 @@ void do_loadxml(FILE * f, int box)
                                     TiXmlNode *text;
                                     for (text = part->FirstChild(); text != 0; text = text->NextSibling())
                                     {
-                                        if (text->Type() == TiXmlNode::TEXT)
+                                        if (text->Type() == TiXmlNode::TINYXML_TEXT)
                                         {
 
                                             MemoryFile f;
@@ -731,7 +731,7 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
 
     for (pChild = doc.FirstChild(); pChild != 0; pChild = pChild->NextSibling())
     {
-        if (pChild->Type() == TiXmlNode::ELEMENT)
+        if (pChild->Type() == TiXmlNode::TINYXML_ELEMENT)
         {
             if (stricmp(pChild->Value(), "Atanua") == 0)
             {
@@ -751,7 +751,7 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
                 TiXmlNode *part;
                 for (part = pChild->FirstChild(); part != 0; part = part->NextSibling())
                 {
-                    if (part->Type() == TiXmlNode::ELEMENT)
+                    if (part->Type() == TiXmlNode::TINYXML_ELEMENT)
                     {
                         if (stricmp(part->Value(), "Chip")==0)
                         {
@@ -832,7 +832,7 @@ void do_loadxmltobinary(FILE * f, File * outf, BoxcacheData * bd)
                                     TiXmlNode *text;
                                     for (text = part->FirstChild(); text != 0; text = text->NextSibling())
                                     {
-                                        if (text->Type() == TiXmlNode::TEXT)
+                                        if (text->Type() == TiXmlNode::TINYXML_TEXT)
                                         {
                                             const char *v = text->Value();
                                             int wholebyte = 0;
