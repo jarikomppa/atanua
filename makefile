@@ -95,43 +95,79 @@ src/chip/tflipflop.cpp \
 src/basecode/toolkit.cpp \
 src/core/wire.cpp \
 src/chip/xorchip.cpp \
-src/core/AtanuaConfig.cpp \
+src/core/AtanuaConfig.cpp
+
+atanua-c-src = \
+src/8051/core.c \
+src/8051/disasm.c \
+src/8051/opcodes.c
+
+atanua-obj = $(atanua-cpp-src:.cpp=.o) $(atanua-c-src:.c=.o)
+
+tinyxml-cpp-src = \
 src/tinyxml_2_5_3/tinyxml/tinystr.cpp \
 src/tinyxml_2_5_3/tinyxml/tinyxml.cpp \
 src/tinyxml_2_5_3/tinyxml/tinyxmlerror.cpp \
 src/tinyxml_2_5_3/tinyxml/tinyxmlparser.cpp \
 
-atanua-c-src = \
-src/8051/core.c \
-src/8051/disasm.c \
-src/8051/opcodes.c \
+tinyxml-obj = $(tinyxml-cpp-src:.cpp=.o)
+
+stb-c-src = \
 src/stb/stb_image.c \
-src/stb/stb_image_write.c \
+src/stb/stb_image_write.c
+
+stb-obj = $(stb-c-src:.c=.o)
+
+glee-c-src = \
 src/glee/GLee.c
 
-atanua-obj = $(atanua-cpp-src:.cpp=.o) $(atanua-c-src:.c=.o)
+glee-obj = $(glee-c-src:.c=.o)
 
 CXX = clang
 CC = clang
 CFLAGS = -O3
 
-gtk_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
 glib_CFLAGS = $(shell pkg-config --cflags glib-2.0)
-sdl_CFLAGS = $(shell pkg-config --cflags sdl)
-gtk_LDFLAGS = $(shell pkg-config --libs gtk+-3.0)
 glib_LDFLAGS = $(shell pkg-config --libs glib-2.0)
+
+gtk_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+gtk_LDFLAGS = $(shell pkg-config --libs gtk+-3.0)
+
+sdl_CFLAGS = $(shell pkg-config --cflags sdl)
 sdl_LDFLAGS = $(shell pkg-config --libs sdl)
 
-override CFLAGS += $(gtk_CFLAGS)
-override CFLAGS += $(glib_CFLAGS)
-override CFLAGS += $(sdl_CFLAGS)
-override CFLAGS += -Isrc -Isrc/include -Isrc/tinyxml_2_5_3/tinyxml
+ifdef UNBUNDLE
 
+# Link against the system libraries
+tinyxml_LDFLAGS += -ltinyxml
+stb_LDFLAGS += -lstbi
+glee_LDFLAGS += -lGLee
+
+else
+
+# Build bundled copies
+tinyxml_CFLAGS = -Isrc/tinyxml_2_5_3/tinyxml
+stb_CFLAGS = -Isrc/stb
+glee_CFLAGS = -Isrc/glee
+atanua-obj += $(tinyxml-obj) $(stb-obj) $(glee-obj)
+
+endif
+
+override CFLAGS += $(glib_CFLAGS)
+override CFLAGS += $(gtk_CFLAGS)
+override CFLAGS += $(sdl_CFLAGS)
+override CFLAGS += $(stb_CFLAGS)
+override CFLAGS += $(tinyxml_CFLAGS)
+override CFLAGS += $(glee_CFLAGS)
+override CFLAGS += -Isrc -Isrc/include -I/usr/include/GL -I/usr/include/OpenGL
 override CXXFLAGS += $(CFLAGS)
 
-override LDFLAGS += $(gtk_LDFLAGS)
 override LDFLAGS += $(glib_LDFLAGS)
+override LDFLAGS += $(gtk_LDFLAGS)
 override LDFLAGS += $(sdl_LDFLAGS)
+override LDFLAGS += $(stb_LDFLAGS)
+override LDFLAGS += $(tinyxml_LDFLAGS)
+override LDFLAGS += $(glee_LDFLAGS)
 override LDFLAGS += -lGL -lGLU -lm -ldl -lstdc++
 
 atanua: $(atanua-obj)

@@ -27,7 +27,7 @@ distribution.
 #include "basechipfactory.h"
 #include "pluginchipfactory.h"
 
-#include "stb/stb_image_write.h"
+#include <stb_image_write.h>
 
 #define C_MENUBG 0xff3f4f4f
 #define C_WIDGETBG 0xff3f5f6f
