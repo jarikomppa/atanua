@@ -67,7 +67,7 @@ Chip74240::Chip74240()
     mPin.push_back(&mOutputPin[7]);
     mOutputPin[7].set(xpos, 2.1, this, "Pin 9:2Y1"); xpos += 0.54;
     
-    mTexture = load_texture("data/chip_20pin.png");    
+    mTexture = load_texture(DATADIR "/chip_20pin.png");    
 }
 
 void Chip74240::render(int aChipId)

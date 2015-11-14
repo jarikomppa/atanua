@@ -60,7 +60,7 @@ Chip74191::Chip74191()
     mOutputPin[3].set(xpos, 1.75, this, "Pin 7:QD output"); xpos += 0.54;
 
     mClock = 0;
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip74191::render(int aChipId)

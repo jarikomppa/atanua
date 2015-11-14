@@ -55,8 +55,8 @@ LedGrid::LedGrid(int aSize, int aColor, int aInverse)
 		mInputPin[i+mSize].set(mSize, (mSize - i - 1) * step + ypos,this,mPinDescription[i+mSize]);
 	}
 
-	mBaseTexture = load_texture("data/ledgrid_base.png");
-	mLitTexture = load_texture("data/ledgrid_lit.png");
+	mBaseTexture = load_texture(DATADIR "/ledgrid_base.png");
+	mLitTexture = load_texture(DATADIR "/ledgrid_lit.png");
 
 	for (i = 0; i < mSize * 2; i++)
 		mInputPin[i].mReadOnly = 1;

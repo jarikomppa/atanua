@@ -60,7 +60,7 @@ Chip7485::Chip7485()
     mOutputPin[2].set(xpos , 1.75, this, "Pin 1:A<B output"); xpos += 0.54;
 
 
-    mTexture = load_texture("data/chip_16pin.png");
+    mTexture = load_texture(DATADIR "/chip_16pin.png");
 }
 
 void Chip7485::render(int aChipId)

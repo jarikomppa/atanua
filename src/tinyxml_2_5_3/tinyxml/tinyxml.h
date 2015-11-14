@@ -463,10 +463,10 @@ public:
 	enum NodeType
 	{
 		DOCUMENT,
-		ELEMENT,
+		TINYXML_ELEMENT,
 		COMMENT,
 		UNKNOWN,
-		TEXT,
+		TINYXML_TEXT,
 		DECLARATION,
 		TYPECOUNT
 	};
@@ -1209,7 +1209,7 @@ public:
 		normal, encoded text. If you want it be output as a CDATA text
 		element, set the parameter _cdata to 'true'
 	*/
-	TiXmlText (const char * initValue ) : TiXmlNode (TiXmlNode::TEXT)
+	TiXmlText (const char * initValue ) : TiXmlNode (TiXmlNode::TINYXML_TEXT)
 	{
 		SetValue( initValue );
 		cdata = false;
@@ -1218,14 +1218,14 @@ public:
 
 	#ifdef TIXML_USE_STL
 	/// Constructor.
-	TiXmlText( const std::string& initValue ) : TiXmlNode (TiXmlNode::TEXT)
+	TiXmlText( const std::string& initValue ) : TiXmlNode (TiXmlNode::TINYXML_TEXT)
 	{
 		SetValue( initValue );
 		cdata = false;
 	}
 	#endif
 
-	TiXmlText( const TiXmlText& copy ) : TiXmlNode( TiXmlNode::TEXT )	{ copy.CopyTo( this ); }
+	TiXmlText( const TiXmlText& copy ) : TiXmlNode( TiXmlNode::TINYXML_TEXT )	{ copy.CopyTo( this ); }
 	void operator=( const TiXmlText& base )							 	{ base.CopyTo( this ); }
 
 	// Write this text object to a FILE stream.

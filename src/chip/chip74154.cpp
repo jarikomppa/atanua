@@ -75,7 +75,7 @@ Chip74154::Chip74154()
     mPin.push_back(&mOutputPin[10]);
     mOutputPin[10].set(xpos, 3.1, this, "Pin 11:OUTPUT 10"); xpos += 0.5475;
 
-    mTexture = load_texture("data/chip_24pin.png");
+    mTexture = load_texture(DATADIR "/chip_24pin.png");
 }
 
 void Chip74154::render(int aChipId)

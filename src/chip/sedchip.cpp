@@ -30,8 +30,8 @@ SEDChip::SEDChip()
     set(0, 0, 1, 2.5, "Smoke Emitting Diode");
     mPin.push_back(&mInputPin);
     mInputPin.set((mW-0.5)/2, mH-0.5, this, "Input");
-    mBaseTexture = load_texture("data/sed.png");
-    mFlareTexture = load_texture("data/sedr.png");
+    mBaseTexture = load_texture(DATADIR "/sed.png");
+    mFlareTexture = load_texture(DATADIR "/sedr.png");
     for (i = 0; i < 32; i++)
         mParticle[i].live = 0;
 

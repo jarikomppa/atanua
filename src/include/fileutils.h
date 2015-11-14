@@ -28,8 +28,8 @@ using namespace std;
 
 class File
 {
-    FILE * f;
 public:
+    FILE * f;
     File();
     File(FILE *aFileHandle);
     File(const char *aFilename, const char *aFileOpenTypes);

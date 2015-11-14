@@ -35,9 +35,9 @@ AND3Chip::AND3Chip(int aUS)
     mPin.push_back(&mOutputPin);
     mOutputPin.set(3.5, 0.75, this, "Output");
     if (aUS)
-        mTexture = load_texture("data/and3_us.png");
+        mTexture = load_texture(DATADIR "/and3_us.png");
     else
-        mTexture = load_texture("data/and3_fi.png");
+        mTexture = load_texture(DATADIR "/and3_fi.png");
 
 	mInputPinA.mReadOnly = 1;
 	mInputPinB.mReadOnly = 1;

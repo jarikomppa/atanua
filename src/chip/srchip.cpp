@@ -34,7 +34,7 @@ SRChip::SRChip()
     mOutputPinA.set(3.5, 0.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(3.5, 1.25, this, "Inverted output");
-    mTexture = load_texture("data/sr.png");
+    mTexture = load_texture(DATADIR "/sr.png");
     mOldState = 0;
 
 	mInputPinA.mReadOnly = 1;

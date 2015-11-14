@@ -94,7 +94,7 @@ void ACFontPagesBlock::load(File * f)
         f->readchars(name[i], l);
         char temp[256];
         // should actually take the directory from the .fnt filename string..
-        sprintf(temp,"data/%s",name[i]); 
+        sprintf(temp,DATADIR "/%s",name[i]); 
         glhandle[i] = load_texture(temp, 1);
     }
 }
@@ -200,16 +200,20 @@ void ACFont::load(FILE *handle)
 void ACFont::load(const char *filename)
 {
     File * f = new File(fopen(filename, "rb"));
-    if (f)
+    if (f->f)
     {
         load(f);
         delete f;
+    }
+    else
+    {
+        perror(filename);
     }
 }
 
 void ACFont::load(File * f)
 {
-    if (f == NULL) return;
+    if (f->f == NULL) return;
     if (f->readbyte() != 0x42) return; // B
     if (f->readbyte() != 0x4d) return; // M
     if (f->readbyte() != 0x46) return; // F

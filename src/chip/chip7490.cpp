@@ -62,7 +62,7 @@ Chip7490::Chip7490()
     mPin.push_back(&mResetPin[3]);
     mResetPin[3].set(xpos, 1.5, this, "Pin 7:R9(2)"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
     mClockA = 0;
     mClockB = 0;
 }

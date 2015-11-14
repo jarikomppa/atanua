@@ -64,7 +64,7 @@ Chip7473::Chip7473()
     mClock[0] = 1;
     mClock[1] = 1;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 }
 
 void Chip7473::render(int aChipId)

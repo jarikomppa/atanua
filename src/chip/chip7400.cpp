@@ -56,7 +56,7 @@ Chip7400::Chip7400()
     mPin.push_back(&mOutputPin[3]);
     mOutputPin[3].set(xpos, 1.5, this, "Pin 6:Y2"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 }
 
 void Chip7400::render(int aChipId)

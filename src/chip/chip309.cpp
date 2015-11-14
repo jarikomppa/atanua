@@ -73,15 +73,15 @@ Chip309::Chip309()
     mPin.push_back(&mInputPin[0]);
     mInputPin[0].set(2.5, yp, this, "Pin 15:A"); yp += 0.5;
 
-    mTexture[0] = load_texture("data/309.png");
-    mTexture[1] = load_texture("data/309_b.png");
-    mTexture[2] = load_texture("data/309_c.png");
-    mTexture[3] = load_texture("data/309_d.png");
-    mTexture[4] = load_texture("data/309_e.png");
-    mTexture[5] = load_texture("data/309_f.png");
-    mTexture[6] = load_texture("data/309_a.png");
-    mTexture[7] = load_texture("data/309_g.png");
-    mTexture[8] = load_texture("data/309_h.png");
+    mTexture[0] = load_texture(DATADIR "/309.png");
+    mTexture[1] = load_texture(DATADIR "/309_b.png");
+    mTexture[2] = load_texture(DATADIR "/309_c.png");
+    mTexture[3] = load_texture(DATADIR "/309_d.png");
+    mTexture[4] = load_texture(DATADIR "/309_e.png");
+    mTexture[5] = load_texture(DATADIR "/309_f.png");
+    mTexture[6] = load_texture(DATADIR "/309_a.png");
+    mTexture[7] = load_texture(DATADIR "/309_g.png");
+    mTexture[8] = load_texture(DATADIR "/309_h.png");
 
     mData = 0;
     mVisibleData = 0;

@@ -1,141 +1,177 @@
 all: atanua
 
 atanua-cpp-src = \
-fileio.cpp \
-BoxStitchingInformation.cpp \
-and8chip.cpp \
-or8chip.cpp \
-nand8chip.cpp \
-nor8chip.cpp \
-slidingaverage.cpp \
-switchchip.cpp \
-16segchip.cpp \
-ledgrid.cpp \
-box.cpp \
-extpin.cpp \
-chip7489.cpp \
-audiochip.cpp \
-7segchip.cpp \
-and3chip.cpp \
-andchip.cpp \
-angelcodefont.cpp \
-atanuaconfig.cpp \
-basechipfactory.cpp \
-buttonchip.cpp \
-stepper.cpp \
-chip309.cpp \
-chip27xx.cpp \
-chip74193.cpp \
-chip74165.cpp \
-chip74192.cpp \
-chip.cpp \
-chip2051.cpp \
-chip7400.cpp \
-chip7402.cpp \
-chip7404.cpp \
-chip7408.cpp \
-chip7410.cpp \
-chip74138.cpp \
-chip74139.cpp \
-chip74151.cpp \
-chip74154.cpp \
-chip74163.cpp \
-chip74164.cpp \
-chip74181.cpp \
-chip74191.cpp \
-chip74195.cpp \
-chip7420.cpp \
-chip74240.cpp \
-chip74241.cpp \
-chip74244.cpp \
-chip74245.cpp \
-chip74283.cpp \
-chip7432.cpp \
-chip7447.cpp \
-chip74574.cpp \
-chip7473.cpp \
-chip7474.cpp \
-chip7485.cpp \
-chip7486.cpp \
-chip7490.cpp \
-clockchip.cpp \
-dchip.cpp \
-dflipflop.cpp \
-dxchip.cpp \
-extrapin.cpp \
-fileutils.cpp \
-jkchip.cpp \
-jkflipflop.cpp \
-label.cpp \
-ledchip.cpp \
-logicprobe.cpp \
-main.cpp \
-mersennetwister.cpp \
-muxchip.cpp \
-nand3chip.cpp \
-nandchip.cpp \
-nativefunctions.cpp \
-net.cpp \
-nor3chip.cpp \
-norchip.cpp \
-notchip.cpp \
-or3chip.cpp \
-orchip.cpp \
-pin.cpp \
-pluginchip.cpp \
-pluginchipfactory.cpp \
-sedchip.cpp \
-serchip.cpp \
-simutils.cpp \
-srchip.cpp \
-srflipflop.cpp \
-srnegchip.cpp \
-staticlevelchip.cpp \
-tchip.cpp \
-tflipflop.cpp \
-toolkit.cpp \
-wire.cpp \
-xorchip.cpp \
-tinyxml/tinystr.cpp \
-tinyxml/tinyxml.cpp \
-tinyxml/tinyxmlerror.cpp \
-tinyxml/tinyxmlparser.cpp \
-
+src/core/fileio.cpp \
+src/core/BoxStitchingInformation.cpp \
+src/chip/and8chip.cpp \
+src/chip/or8chip.cpp \
+src/chip/nand8chip.cpp \
+src/chip/nor8chip.cpp \
+src/core/slidingaverage.cpp \
+src/chip/switchchip.cpp \
+src/chip/16segchip.cpp \
+src/chip/ledgrid.cpp \
+src/chip/box.cpp \
+src/chip/extpin.cpp \
+src/chip/chip7489.cpp \
+src/chip/audiochip.cpp \
+src/chip/7segchip.cpp \
+src/chip/and3chip.cpp \
+src/chip/andchip.cpp \
+src/basecode/angelcodefont.cpp \
+src/core/basechipfactory.cpp \
+src/chip/buttonchip.cpp \
+src/chip/stepper.cpp \
+src/chip/chip309.cpp \
+src/chip/chip27xx.cpp \
+src/chip/chip74193.cpp \
+src/chip/chip74165.cpp \
+src/chip/chip74192.cpp \
+src/core/chip.cpp \
+src/chip/chip2051.cpp \
+src/chip/chip7400.cpp \
+src/chip/chip7402.cpp \
+src/chip/chip7404.cpp \
+src/chip/chip7408.cpp \
+src/chip/chip7410.cpp \
+src/chip/chip74138.cpp \
+src/chip/chip74139.cpp \
+src/chip/chip74151.cpp \
+src/chip/chip74154.cpp \
+src/chip/chip74163.cpp \
+src/chip/chip74164.cpp \
+src/chip/chip74181.cpp \
+src/chip/chip74191.cpp \
+src/chip/chip74195.cpp \
+src/chip/chip7420.cpp \
+src/chip/chip74240.cpp \
+src/chip/chip74241.cpp \
+src/chip/chip74244.cpp \
+src/chip/chip74245.cpp \
+src/chip/chip74283.cpp \
+src/chip/chip7432.cpp \
+src/chip/chip7447.cpp \
+src/chip/chip74574.cpp \
+src/chip/chip7473.cpp \
+src/chip/chip7474.cpp \
+src/chip/chip7485.cpp \
+src/chip/chip7486.cpp \
+src/chip/chip7490.cpp \
+src/chip/clockchip.cpp \
+src/chip/dchip.cpp \
+src/chip/dflipflop.cpp \
+src/chip/dxchip.cpp \
+src/chip/extrapin.cpp \
+src/core/fileutils.cpp \
+src/chip/jkchip.cpp \
+src/chip/jkflipflop.cpp \
+src/chip/label.cpp \
+src/chip/ledchip.cpp \
+src/chip/logicprobe.cpp \
+src/core/main.cpp \
+src/basecode/mersennetwister.cpp \
+src/chip/muxchip.cpp \
+src/chip/nand3chip.cpp \
+src/chip/nandchip.cpp \
+src/core/nativefunctions.cpp \
+src/core/net.cpp \
+src/chip/nor3chip.cpp \
+src/chip/norchip.cpp \
+src/chip/notchip.cpp \
+src/chip/or3chip.cpp \
+src/chip/orchip.cpp \
+src/core/pin.cpp \
+src/core/pluginchip.cpp \
+src/core/pluginchipfactory.cpp \
+src/chip/sedchip.cpp \
+src/chip/serchip.cpp \
+src/core/simutils.cpp \
+src/chip/srchip.cpp \
+src/chip/srflipflop.cpp \
+src/chip/srnegchip.cpp \
+src/chip/staticlevelchip.cpp \
+src/chip/tchip.cpp \
+src/chip/tflipflop.cpp \
+src/basecode/toolkit.cpp \
+src/core/wire.cpp \
+src/chip/xorchip.cpp \
+src/core/AtanuaConfig.cpp
 
 atanua-c-src = \
-8051/core.c \
-8051/disasm.c \
-8051/opcodes.c \
-stb/stb_image.c \
-stb/stb_image_write.c \
-glee/GLee.c
+src/8051/core.c \
+src/8051/disasm.c \
+src/8051/opcodes.c
 
 atanua-obj = $(atanua-cpp-src:.cpp=.o) $(atanua-c-src:.c=.o)
 
+tinyxml-cpp-src = \
+src/tinyxml_2_5_3/tinyxml/tinystr.cpp \
+src/tinyxml_2_5_3/tinyxml/tinyxml.cpp \
+src/tinyxml_2_5_3/tinyxml/tinyxmlerror.cpp \
+src/tinyxml_2_5_3/tinyxml/tinyxmlparser.cpp \
+
+tinyxml-obj = $(tinyxml-cpp-src:.cpp=.o)
+
+stb-c-src = \
+src/stb/stb_image.c \
+src/stb/stb_image_write.c
+
+stb-obj = $(stb-c-src:.c=.o)
+
+glee-c-src = \
+src/glee/GLee.c
+
+glee-obj = $(glee-c-src:.c=.o)
+
 CXX = clang
 CC = clang
+CFLAGS = -O3
 
-CXXFLAGS = \
--O3 \
--I/usr/include/c++/4.5 \
--I/usr/include/c++/4.5/i686-linux-gnu \
--I/usr/X11R6/include \
--Itinyxml \
--I/usr/include/gtk-3.0 \
--I/usr/include/cairo \
--I/usr/include/glib-2.0 \
--I/usr/lib/glib-2.0/include \
--I/usr/include/pango-1.0 \
--I/usr/lib/gtk-3.0/include \
--I/usr/include/atk-1.0 \
--I/usr/lib/i386-linux-gnu/glib-2.0/include \
--I/usr/lib/x86_64-linux-gnu/glib-2.0/include \
--I/usr/include/gdk-pixbuf-2.0 
+glib_CFLAGS = $(shell pkg-config --cflags glib-2.0)
+glib_LDFLAGS = $(shell pkg-config --libs glib-2.0)
 
+gtk_CFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+gtk_LDFLAGS = $(shell pkg-config --libs gtk+-3.0)
 
+sdl_CFLAGS = $(shell pkg-config --cflags sdl)
+sdl_LDFLAGS = $(shell pkg-config --libs sdl)
+
+ifdef UNBUNDLE
+
+# Link against the system libraries
+tinyxml_LDFLAGS += -ltinyxml
+stb_LDFLAGS += -lstbi
+glee_LDFLAGS += -lGLee
+
+else
+
+# Build bundled copies
+tinyxml_CFLAGS = -Isrc/tinyxml_2_5_3/tinyxml
+stb_CFLAGS = -Isrc/stb
+glee_CFLAGS = -Isrc/glee
+atanua-obj += $(tinyxml-obj) $(stb-obj) $(glee-obj)
+
+endif
+
+override CFLAGS += $(glib_CFLAGS)
+override CFLAGS += $(gtk_CFLAGS)
+override CFLAGS += $(sdl_CFLAGS)
+override CFLAGS += $(stb_CFLAGS)
+override CFLAGS += $(tinyxml_CFLAGS)
+override CFLAGS += $(glee_CFLAGS)
+override CFLAGS += -Isrc -Isrc/include -I/usr/include/GL -I/usr/include/OpenGL
+override CXXFLAGS += $(CFLAGS)
+
+override LDFLAGS += $(glib_LDFLAGS)
+override LDFLAGS += $(gtk_LDFLAGS)
+override LDFLAGS += $(sdl_LDFLAGS)
+override LDFLAGS += $(stb_LDFLAGS)
+override LDFLAGS += $(tinyxml_LDFLAGS)
+override LDFLAGS += $(glee_LDFLAGS)
+override LDFLAGS += -lGL -lGLU -lm -ldl -lstdc++
 
 atanua: $(atanua-obj)
-	$(CXX) `pkg-config --cflags gtk+-3.0` `pkg-config --cflags glib-2.0` -o $@ $(atanua-obj) -L. -lSDLmain -lSDL -lGL -lGLU `pkg-config --libs gtk+-3.0` `pkg-config --libs glib-2.0` -O3 $(CXXFLAGS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
 clean:
 	rm $(atanua-obj) atanua

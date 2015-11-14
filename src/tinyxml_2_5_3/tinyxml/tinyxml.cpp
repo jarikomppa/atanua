@@ -502,7 +502,7 @@ const TiXmlDocument* TiXmlNode::GetDocument() const
 
 
 TiXmlElement::TiXmlElement (const char * _value)
-	: TiXmlNode( TiXmlNode::ELEMENT )
+	: TiXmlNode( TiXmlNode::TINYXML_ELEMENT )
 {
 	firstChild = lastChild = 0;
 	value = _value;
@@ -511,7 +511,7 @@ TiXmlElement::TiXmlElement (const char * _value)
 
 #ifdef TIXML_USE_STL
 TiXmlElement::TiXmlElement( const std::string& _value ) 
-	: TiXmlNode( TiXmlNode::ELEMENT )
+	: TiXmlNode( TiXmlNode::TINYXML_ELEMENT )
 {
 	firstChild = lastChild = 0;
 	value = _value;
@@ -520,7 +520,7 @@ TiXmlElement::TiXmlElement( const std::string& _value )
 
 
 TiXmlElement::TiXmlElement( const TiXmlElement& copy)
-	: TiXmlNode( TiXmlNode::ELEMENT )
+	: TiXmlNode( TiXmlNode::TINYXML_ELEMENT )
 {
 	firstChild = lastChild = 0;
 	copy.CopyTo( this );	

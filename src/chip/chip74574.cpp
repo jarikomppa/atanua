@@ -67,7 +67,7 @@ Chip74574::Chip74574()
     mPin.push_back(&mInputPin[7]);
     mInputPin[7].set(xpos, 2.1, this, "Pin 8:8D"); xpos += 0.54;
     
-    mTexture = load_texture("data/chip_20pin.png");
+    mTexture = load_texture(DATADIR "/chip_20pin.png");
     
     mState = 0;
     mClock = 0;

@@ -34,7 +34,7 @@ DChip::DChip()
     mOutputPinA.set(3.5, 0.25, this, "Output");
     mPin.push_back(&mOutputPinB);
     mOutputPinB.set(3.5, 1.25, this, "Inverted output");
-    mTexture = load_texture("data/d.png");
+    mTexture = load_texture(DATADIR "/d.png");
     mOldState = 0;
 
 	mInputPinA.mReadOnly = 1;

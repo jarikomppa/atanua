@@ -59,7 +59,7 @@ Chip7404::Chip7404()
     mPin.push_back(&mOutputPin[5]);
     mOutputPin[5].set(xpos, 1.5, this, "Pin 6:Y3"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 }
 
 void Chip7404::render(int aChipId)

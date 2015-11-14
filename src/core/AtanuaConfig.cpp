@@ -191,14 +191,14 @@ void AtanuaConfig::load()
         TiXmlNode *root;
         for (root = doc.FirstChild(); root != 0; root = root->NextSibling())
         {
-            if (root->Type() == TiXmlNode::ELEMENT)
+            if (root->Type() == TiXmlNode::TINYXML_ELEMENT)
             {
                 if (stricmp(root->Value(), "AtanuaConfig")==0)
                 {
                     TiXmlNode *part;
                     for (part = root->FirstChild(); part != 0; part = part->NextSibling())
                     {
-                        if (part->Type() == TiXmlNode::ELEMENT)
+                        if (part->Type() == TiXmlNode::TINYXML_ELEMENT)
                         {
 
                             if (stricmp(part->Value(), "FontSystem") == 0)

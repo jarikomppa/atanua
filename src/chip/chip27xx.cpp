@@ -114,7 +114,7 @@ Chip27xx::Chip27xx(int aType)
     mPin.push_back(&mOutputPin[2]);
     mOutputPin[2].set(xpos, 3.1, this, "Pin 11:DQ2"); xpos += 0.5475;
 
-    mTexture = load_texture("data/chip_24pin.png");
+    mTexture = load_texture(DATADIR "/chip_24pin.png");
 }
 
 Chip27xx::~Chip27xx()

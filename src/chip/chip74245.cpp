@@ -67,7 +67,7 @@ Chip74245::Chip74245()
     mPin.push_back(&mBusAPin[7]);
     mBusAPin[7].set(xpos, 2.1, this, "Pin 9:A8"); xpos += 0.54;
     
-    mTexture = load_texture("data/chip_20pin.png");    
+    mTexture = load_texture(DATADIR "/chip_20pin.png");    
 }
 
 void Chip74245::render(int aChipId)

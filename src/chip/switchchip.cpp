@@ -29,7 +29,7 @@ SwitchChip::SwitchChip(int aCharacter)
     set(0,0,2,2.5,NULL);
     mPin.push_back(&mOutputPin);
     mOutputPin.set(0.75, 1.9, this, "Output");
-    mTexture = load_texture("data/switch.png");
+    mTexture = load_texture(DATADIR "/switch.png");
     mPressed = 0;
 	mSwitchedOn = 0;
 }

@@ -38,6 +38,8 @@ File::File(FILE *aFileHandle)
 File::File(const char *aFilename, const char *aFileOpenTypes)
 {
     f = fopen(aFilename, aFileOpenTypes);
+    if (!f)
+        perror(aFilename);
 }
 
 File::~File()

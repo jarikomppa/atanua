@@ -34,7 +34,7 @@ ClockChip::ClockChip(float aFreqHz)
     set(0, 0, 2, 2.25,NULL);
     mPin.push_back(&mOutputPin);
     mOutputPin.set(0.75, 1.75, this, "Output");
-    mTexture = load_texture("data/clock.png");
+    mTexture = load_texture(DATADIR "/clock.png");
 	if (aFreqHz*2/1000 > gConfig.mPhysicsKHz)
 		mNagOnce = 1;
 	else
@@ -95,7 +95,7 @@ ClockChip::ClockChip(float aFreqHz)
     set(0, 0, 2, 2.25,NULL);
     mPin.push_back(&mOutputPin);
     mOutputPin.set(0.75, 1.75, this, "Output");
-    mTexture = load_texture("data/clock.png");
+    mTexture = load_texture(DATADIR "/clock.png");
     mTimePos = 0;
 }
 

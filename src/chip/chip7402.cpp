@@ -56,7 +56,7 @@ Chip7402::Chip7402()
     mPin.push_back(&mInputPinA[3]);
     mInputPinA[3].set(xpos, 1.5, this, "Pin 6:B2"); xpos += 0.54;
 
-    mTexture = load_texture("data/chip_14pin.png");
+    mTexture = load_texture(DATADIR "/chip_14pin.png");
 }
 
 void Chip7402::render(int aChipId)
