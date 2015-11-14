@@ -200,10 +200,14 @@ void ACFont::load(FILE *handle)
 void ACFont::load(const char *filename)
 {
     File * f = new File(fopen(filename, "rb"));
-    if (f)
+    if (f->f)
     {
         load(f);
         delete f;
+    }
+    else
+    {
+        perror(filename);
     }
 }
 

@@ -215,7 +215,10 @@ static void do_loadtexture(const char * aFilename, int clamp = 1)
 	unsigned char *data = stbi_load(aFilename, &x, &y, &n, 4);
     
     if (data == NULL)
+    {
+        perror(aFilename);
         return;
+    }
 
     int l, w, h;
     w = x;
@@ -409,7 +412,10 @@ SDL_Cursor *load_cursor(const char *aFilename, int hotx, int hoty)
 	unsigned char *imgdata = stbi_load(aFilename, &ix, &iy, &n, 4);
 
     if (imgdata == NULL)
+    {
+        perror(aFilename);
         return NULL;
+    }
 
     if (ix > 32 || iy > 32)
     {
