@@ -407,8 +407,8 @@ SDL_Cursor *load_cursor(const char *aFilename, int hotx, int hoty)
     SDL_Cursor      *cursor;
 	int ix, iy, n;
 	unsigned char *imgdata = stbi_load(aFilename, &ix, &iy, &n, 4);
-    
-    if (data == NULL)
+
+    if (imgdata == NULL)
         return NULL;
 
     if (ix > 32 || iy > 32)
